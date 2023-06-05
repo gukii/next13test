@@ -1,0 +1,12 @@
+
+  
+.innerLayout {
+  width: 50%;
+  height: auto;
+  background-color: tomato;
+  padding: 1rem;
+}
+
+.children {
+  padding: 1rem;
+}
