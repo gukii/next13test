@@ -9,7 +9,7 @@ async function getData( pageNr: Number ) {
 
     const data = res.json()  
     console.log('fetched data:', JSON.stringify(data))
-    
+
     return data
 }
   
@@ -28,3 +28,20 @@ export default async function Page() {
 }
 
 //         <ClientPieceRandom /> 
+
+/*
+(async () => {
+  const rawResponse = await fetch('https://httpbin.org/post', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({a: 1, b: 'Textual content'})
+  });
+  const content = await rawResponse.json();
+
+  console.log(content);
+})();
+
+*/

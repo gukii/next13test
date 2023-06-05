@@ -46,13 +46,13 @@ export default async function Page() {
 
 async function getData( pageNr: Number ) {
   //const url = `https://pokeapi.co/api/v2/pokemon?limit=5&offset=${pageNr}`
-  const url = `http://localhost:3000/`
+  const url = `http://localhost:3000/myapi/other`
 
-  console.log('fetch url:', url, { next: { revalidate: 3 } } )
-  const res = await fetch(url)
+  console.log('fetch url:', url )
+  const res = await fetch(url, { next: { revalidate: 3 } } )
   //console.log('got data res:', res)
   const data = res.json()  
-  //console.log('fetched data:', JSON.stringify(data))
+  console.log('fetched data:', JSON.stringify(data))
   return data
 }
 
@@ -60,12 +60,15 @@ async function getData( pageNr: Number ) {
 export default async function Page() {
   const pageNr = Math.floor(Math.random()*10)
   const data = await getData( pageNr );
-  console.log(`pageNr:${pageNr} first poke:${data.results[0].name}`)
+  console.log('data returned:', JSON.stringify(data))
+
+  const dataOne = data?.results?.length ? data.results[0].name : 'nodata'
+  console.log(`pageNr:${pageNr} first poke:${dataOne}`)
   return (
     <>
       <ClientPieceRandom /> 
       <p>
-        { `pageNr:${pageNr} first poke:${data.results[0].name}` }
+        { `pageNr:${pageNr} first poke:${dataOne}` }
       </p>
     </>
   );

@@ -24,10 +24,10 @@ async function getData() {
 export async function GET() {
 
     const ms = Date.now()
-    const hello = { hello: 'world, ms:'+ ms }
+    const results = [{ name: 'world, ms:'+ ms },{ name: 'othername' }] 
 
     return NextResponse.json(
-        hello,    // { name: 'Mary Lamb' }
+        results,    // { name: 'Mary Lamb' }
         {
           status: 200,
           headers: {
